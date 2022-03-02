@@ -15,6 +15,9 @@
     "ms-azuretools.vscode-docker",
     "EditorConfig.EditorConfig"
   ],
+  "forwardPorts": [
+    3000,
+  ],
   "overrideCommand": false,
   "features": {
     "docker-in-docker": {
