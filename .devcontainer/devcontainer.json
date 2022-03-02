@@ -1,0 +1,36 @@
+{
+  "name": "Anagolay -- Project Idiyanale Phase 1 -- W3F delivery",
+  "dockerComposeFile": "../devcontainer-dc.yml",
+  "service": "code",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/usr/bin/zsh"
+      }
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh"
+  },
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "EditorConfig.EditorConfig"
+  ],
+  "overrideCommand": false,
+  "features": {
+    "docker-in-docker": {
+      "version": "latest",
+      "moby": true
+    },
+    "node": {
+      "version": "16",
+      "nodeGypDependencies": true
+    },
+    "rust": {
+      "version": "latest",
+      "profile": "default"
+    },
+  },
+  "remoteUser": "node",
+  "postCreateCommand": "bash .devcontainer/install-deps.sh",
+  "postStartCommand": "docker-compose up -d"
+}

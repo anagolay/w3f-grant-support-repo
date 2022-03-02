@@ -1,0 +1,13 @@
+version: "3"
+services:
+  code:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:16-bullseye
+    user: $UID
+    # docker-in-docker related setup
+    init: true
+    privileged: true
+    # docker-in-docker related setup
+    volumes:
+      - ./:/workspace:cached
+    command: sleep infinity
+    env_file: ./.env
