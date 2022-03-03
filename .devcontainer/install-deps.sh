@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Installing the Anagolay CLI"
-sudo sh -c 'curl https://ipfs.anagolay.network/ipfs/bafybeicpglyqjfgptarzirb6ctmcmhdkhtnk257m6ta6wmzzqyocatheaa > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
+sudo sh -c 'curl https://ipfs.anagolay.network/ipfs/bafybeia4ggdxxmrif357p6inwbuvzoxsavj24ol7h2cuvcnnnng7zgfqsi > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
 
 # smoke test
 echo "Anagolay version is $(anagolay --version)"
