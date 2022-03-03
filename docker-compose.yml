@@ -2,7 +2,7 @@ version: '3'
 services:
   publish:
     image: docker.io/anagolay/microservices-publish:66c0a20 
-    env_file: ./.env
+    env_file: ./env
     cap_add:
       - SYS_PTRACE
     security_opt:
@@ -11,7 +11,7 @@ services:
       - db
       - ipfs
     ports:
-      - $APP_PORT:$APP_PORT
+      - $FWD_APP_PORT:3000
   anagolay:
     image: docker.io/anagolay/anagolay:latest
     ports:
@@ -23,7 +23,7 @@ services:
     command: --dev --no-telemetry --rpc-external --unsafe-ws-external --rpc-cors all
   db:
     image: docker.io/mongo:latest
-    env_file: ./.env
+    env_file: ./env
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}

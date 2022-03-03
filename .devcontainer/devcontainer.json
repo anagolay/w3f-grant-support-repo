@@ -13,7 +13,9 @@
   },
   "extensions": [
     "ms-azuretools.vscode-docker",
-    "EditorConfig.EditorConfig"
+    "EditorConfig.EditorConfig",
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid"
   ],
   "forwardPorts": [
     3000,

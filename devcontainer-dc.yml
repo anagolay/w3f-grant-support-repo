@@ -10,4 +10,4 @@ services:
     volumes:
       - ./:/workspace:cached
     command: sleep infinity
-    env_file: ./.env
+    env_file: ./env
