@@ -1,0 +1,20 @@
+[package]
+name = "rust-demo"
+repository = "https://gitlab.com/anagolay/w3f-grant-support-repo"
+homepage = "https://gitlab.com/anagolay/w3f-grant-support-repo/rust-demo"
+version = "0.1.0"
+authors = [
+  "Daniel Maricic <daniel@woss.io>",
+  "Adriano Dalpane <adriano.dalpane@gmail.com>",
+]
+edition = "2021"
+description = "Demonstrating operation execution in Rust"
+license = "Apache 2.0"
+
+[dependencies]
+op-file = { default-features = false, features = ["anagolay"], path = '../op-file' }
+tokio = { version = "1.16.1", features = ["full"] }
+
+[dev-dependencies]
+rusty-hook = "^0.11.2"
+
