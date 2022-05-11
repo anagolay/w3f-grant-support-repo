@@ -13,7 +13,7 @@ services:
     ports:
       - $FWD_APP_PORT:3000
   anagolay:
-    image: docker.io/anagolay/anagolay:latest
+    image: docker.io/anagolay/anagolay:7d277270
     ports:
       - 30333:30333
       - 9933:9933
