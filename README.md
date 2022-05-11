@@ -1,4 +1,4 @@
-# Anagolay project Idiyanale phase 1 (Nr. 1)
+# Anagolay project Idiyanale phase 1 (Nr. 1) - Milestone 1
 
 Hi and welcome to the support repo for the W3F grant [PR 719](https://github.com/w3f/Grants-Program/pull/719).
 
@@ -21,7 +21,7 @@ Included in this environment:
   - [IPFS node](./docker-compose.yml#34) -- standard IPFS instance
 - Anagolay CLI -- Via rehosted IPFS version, this brings 100% code assurance
 - LTS Nodejs 16
-- [op-file](https://gitlab.com/anagolay/op-file) repository cloned in the project root
+- [op-file](https://gitlab.com/anagolay/operations/op_file) repository cloned in the project root
 - [env](./env) file with defaults that just works
 
 **Debugging and cleanup if you need it**
