@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 services:
   publish:
-    image: docker.io/anagolay/microservices-publish:66c0a20 
-    env_file: 
+    image: docker.io/anagolay/microservices-publish:57552e85
+    env_file:
       - ./env
       - ./envFiles/publishService
     cap_add:
@@ -14,6 +14,13 @@ services:
       - ipfs
     ports:
       - $APP_PORT
+  ws:
+    image: docker.io/anagolay/microservices-ws-server:57552e85
+    env_file:
+      - ./env
+      - ./envFiles/wsService
+    ports:
+      - $AN_WS_PORT
   anagolay:
     image: docker.io/anagolay/anagolay:7d277270
     ports:
