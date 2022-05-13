@@ -2,7 +2,9 @@ version: '3'
 services:
   publish:
     image: docker.io/anagolay/microservices-publish:66c0a20 
-    env_file: ./env
+    env_file: 
+      - ./env
+      - ./envFiles/publishService
     cap_add:
       - SYS_PTRACE
     security_opt:
@@ -11,7 +13,7 @@ services:
       - db
       - ipfs
     ports:
-      - $FWD_APP_PORT:3000
+      - $APP_PORT
   anagolay:
     image: docker.io/anagolay/anagolay:7d277270
     ports:
