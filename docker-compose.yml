@@ -13,16 +13,16 @@ services:
       - db
       - ipfs
     ports:
-      - $APP_PORT
+      - 2112:2112
   ws:
     image: docker.io/anagolay/microservices-ws-server:57552e85
     env_file:
       - ./env
       - ./envFiles/wsService
     ports:
-      - $AN_WS_PORT
+      - 2113:2113
   anagolay:
-    image: docker.io/anagolay/anagolay:7d277270
+    image: docker.io/anagolay/anagolay:0bd52eea
     ports:
       - 30333:30333
       - 9933:9933
@@ -32,7 +32,9 @@ services:
     command: --dev --no-telemetry --rpc-external --unsafe-ws-external --rpc-cors all
   db:
     image: docker.io/mongo:latest
-    env_file: ./env
+    env_file: 
+      - ./env
+      - ./envFiles/publishService
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}

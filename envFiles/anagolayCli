@@ -1,3 +1,8 @@
 ANAGOLAY_PUBLISH_SERVICE_API_KEY=34561423-94b2-425d-ac17-376221dbedad
+
+ANAGOLAY_WEBSOCKET_SERVICE_API_URL=http://host.docker.internal:2113
 ANAGOLAY_PUBLISH_SERVICE_API_URL=http://127.0.0.1:2112
-ANAGOLAY_CHAIN_URL=ws://127.0.0.1:9944
+ANAGOLAY_CHAIN_HOST=host.docker.internal
+ANAGOLAY_CHAIN_WS_URL=ws://$ANAGOLAY_CHAIN_HOST:9944
+
+ANAGOLAY_WORKFLOW_BUILDER_UI=https://bafybeidbgbxpwdgeygsdbghhvalchipalnvcdyltl6d5cdpvkgzvi7atby.ipfs.anagolay.network/workflow-builder/

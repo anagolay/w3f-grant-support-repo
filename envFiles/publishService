@@ -1,8 +1,16 @@
 APP_PORT=2112
-IPFS_HOSTNAME=ipfs
-IPFS_API_IP=ipfs
-IPFS_API_PORT=5001
-IPFS_API_PROTOCOL=http
-IPFS_API_KEY="really-not-important-unless-you-are-using-ipfs-auth-proxy" # this 
+IPFS_API_KEY="really-not-important-unless-you-are-using-ipfs-auth-proxy"
 IPFS_PIN=false
+IPFS_GATEWAY_HOSTNAME=localhost 
+IPFS_API_URL=http://ipfs:5001/api/v0
+
+
+# DB access, only part of the Publish service
+MONGODB_HOSTNAME=db
+MONGODB_PORT=27017
+MONGODB_USERNAME=admin
+MONGODB_PASSWORD=1234556
+
 APPROVED_API_KEY=34561423-94b2-425d-ac17-376221dbedad
+ENABLE_API_KEY_SUPPORT=true
+
