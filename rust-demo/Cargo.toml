@@ -8,13 +8,18 @@ authors = [
   "Adriano Dalpane <adriano.dalpane@gmail.com>",
 ]
 edition = "2021"
-description = "Demonstrating operation execution in Rust"
+description = "Demonstrating workflow execution in Rust"
 license = "Apache 2.0"
 
-[dependencies]
-op-file = { default-features = false, features = ["anagolay"], path = '../op-file' }
-tokio = { version = "1.16.1", features = ["full"] }
+[dependencies.wf_file_multihash_cid]
+git = "https://ipfs.anagolay.network/ipfs/bafybeigjcga7j6wf2svgspvsgzt7qqez37qm4borp4njyfnsqaadkmsxbu"
 
-[dev-dependencies]
-rusty-hook = "^0.11.2"
+[dependencies.tokio]
+version = "1.16.1"
+features = ["full"]
 
+[dev-dependencies.rusty-hook]
+version= "0.11.2"
+
+[patch.'https://gitlab.com/anagolay/operations/op_multihash']
+op_multihash = { git = "https://ipfs.anagolay.network/ipfs/bafybeid643i7bpsffvaw6wvsf2runosyqzrbmronvpixkybsusaoeqwjbm" }
