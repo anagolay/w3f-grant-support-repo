@@ -1,0 +1,48 @@
+{
+  "name": "web-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "nodemon -w src --experimental-modules --experimental-wasm-modules ./src/index.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@anagolay/wf_file_multihash_cid": "file:/tmp/wf_file_multihash_cid_wasm",
+    "crypto-browserify": "^3.12.0",
+    "grommet": "^2.17.5",
+    "ipfs-http-client": "^52.0.3",
+    "node-fetch": "^3.2.0",
+    "nodemon": "^2.0.12",
+    "styled-components": "^5.3.1",
+    "ts-node": "^10.2.1",
+    "ts-node-dev": "^1.1.8",
+    "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "@wasm-tool/wasm-pack-plugin": "^1.5.0",
+    "eslint": "^7.32.0",
+    "html-webpack-plugin": "^5.3.2",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "serve": "^12.0.0",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.4.2",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.0"
+  }
+}

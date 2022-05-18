@@ -21,4 +21,15 @@ if [ ! -d "/workspace/op_cid" ]; then
 	git clone https://gitlab.com/anagolay/operations/op_cid.git 
 fi
 
+# extract the cjs workflow to use as dependency
+if [ ! -d "/tmp/wf_file_multihash_cid_wasm" ]; then
+	echo "Unzipping the workflow wasm to the root for testing"
+	curl -o cjs.tar.gz "https://ipfs.anagolay.network/ipfs/bafybeidws5rdgvj5ycqhbumf6yfm2w2rcwmc7xs3uprtyy23rdmp54cw4q"
+  mkdir /tmp/wf_file_multihash_cid_wasm
+  tar -xzf cjs.tar.gz -C /tmp/wf_file_multihash_cid_wasm
+  rm -f cjs.tar.gz
+fi
 
+# install pnpm
+echo "Installing pnpm"
+npm install -g pnpm
