@@ -7,4 +7,4 @@ MONGODB_USERNAME=admin
 MONGODB_PASSWORD=1234556
 
 # this is used by the CLI and Publish Service
-ENABLE_API_KEY_SUPPORT=true
+ENABLE_API_KEY_SUPPORT=false

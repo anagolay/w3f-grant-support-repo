@@ -1,6 +1,8 @@
-# Anagolay project Idiyanale phase 1 (Nr. 1) - Milestone 1
+# Anagolay project Idiyanale phase 1 (Nr. 1) - Milestone 2
 
 Hi and welcome to the support repo for the W3F grant [PR 719](https://github.com/w3f/Grants-Program/pull/719).
+
+This is the continuation from the previous [Milestone 1](https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-1). Certain documentation and descriptions will **not** be duplicated but referenced. 
 
 ---
 
@@ -10,18 +12,25 @@ Important files:
 
 - [docker-compose.yml](./docker-compose.yml) is the main starting point as per agreed standard. There you can see all the services and their setup
 - [devcontainer-dc.yml](./devcontainer-dc.yml) file is used for the devcontainer and it's not going to be used in the demo
-- [.devcontainer/install-deps.sh](./.devcontainer/install-deps.sh) will clone `op-file` repo and install the Anagolay CLI
+- [.devcontainer/install-deps.sh](./.devcontainer/install-deps.sh) will clone 
+  -  `op_file` repo
+  -  `op_cid` repo
+  -  `op_multihash` repo
+  -  install the Anagolay CLI
 
 Included in this environment:
 
 - Docker services
   - [Publish Service](./docker-compose.yml#L3) -- More info [here](#what-is-a-publish-service)
-  - [Anagolay Node](./docker-compose.yml#L15) -- More info [here](#anagolay-node-runtime)
-  - [MongoDB](./docker-compose.yml#24) -- standard MongoDB instance
-  - [IPFS node](./docker-compose.yml#34) -- standard IPFS instance
+  - [WS Service](./docker-compose.yml#L17) -- More info [here](#what-is-a-websocket-service)
+  - [Anagolay Node](./docker-compose.yml#L24) -- More info [here](#anagolay-node-runtime)
+  - [MongoDB](./docker-compose.yml#33) -- standard MongoDB instance
+  - [IPFS node](./docker-compose.yml#45) -- standard IPFS instance
 - Anagolay CLI -- Via rehosted IPFS version, this brings 100% code assurance
 - LTS Nodejs 16
-- [op-file](https://gitlab.com/anagolay/operations/op_file) repository cloned in the project root
+- [op_file](https://gitlab.com/anagolay/operations/op_file) repository cloned in the project root
+- [op_cid](https://gitlab.com/anagolay/operations/op_cid) repository cloned in the project root
+- [op_multihash](https://gitlab.com/anagolay/operations/op_multihash) repository cloned in the project root
 - [env](./env) file with defaults that just works
 
 **Debugging and cleanup if you need it**
@@ -56,20 +65,19 @@ docker-compose logs --follow publish
 - The API documentation is located [here](https://documenter.getpostman.com/view/2220022/UVktpYgR)
 - Repository is hosted here: https://gitlab.com/anagolay/micro-services
 - OCI Publish Service: https://hub.docker.com/r/anagolay/microservices-publish
+- OCI Websocket Service: https://hub.docker.com/r/anagolay/microservices-ws-service
 - OCI Anagolay Node: https://hub.docker.com/r/anagolay/anagolay
 - [Latest Anagolay Node docs](https://ipfs.anagolay.network/ipfs/bafybeieyp6szilglbepuvc7maz3crqfvdptpuslhgy6t5qbb3t3zuq2muy/anagolay/index.html)
 - [Anagolay Custom Types](https://ipfs.anagolay.network/ipfs/bafkreif6m5qv2lrj5uh6qzomluwxxz2diupj3h55qkhmitbw6qflf2cdd4) for the usage with [PolkadotApp](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer)
 - [Anagolay Node repository](https://github.com/anagolay/anagolay-chain)
 
-Here is the AsciiCinema of the Publishing flow, this is the same approach described in the [Anagolay CLI](#publishing-the-operation-op-file-via-anagolay-cli) deliverable. Be aware that this recording is in realtime, that means the total length is `5:23` minutes.
-
-[![asciicast](https://asciinema.org/a/473473.svg)](https://asciinema.org/a/473473)
-
 ---
 
 ## What is a Publish Service?
 
-> First thing to know is that the `Publish Service` is in the alpha stage and it's built to solve a current problem. This might not be the case in the future, it will probably evolve into something else.
+> The explanation of this service is outlined in the [Milestone 1](https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-1#what-is-a-publish-service), please go there to refresh your memory.
+
+
 
 This is related to the [Anagolay CLI: Operation Part 1](https://github.com/anagolay/Grants-Program/blob/a6bd87adb3331db6efc8e7a96106c8efd53e4e31/applications/anagolay-project-idiyanale-phase-1.md#anagolay-cli-operation-part-1), initially thought to build and publish from the developers' machine, then we iterated over the idea and realized that approach would create potential vectors of the attack like the code injection ( for the generated JS files ), hijacking the Anagolay CLI extrinsic call, ipfs spamming, not having unified packages ( rust, node, cargo, ... ) for the reproducible builds. Due to these reasons ( and a few more ) we decided to create a publish service that unifies the environment and does all the building and publishing to the IPFS then returns the response in a structured way so the Anagolay CLI can use it. Additionally the service stores the built responses in the MongoDB for future queries and to prevent unnecessary builds. The unique id is the `revision`. Since the git object creation and revision is content based, this will always be unique.
 
@@ -119,7 +127,7 @@ This part also includes the `Benchmarks: an_operation` deliverable.
 
 ## Anagolay CLI
 
-As per grant Milestone 1 deliverable [Anagolay CLI: Operation Part 1](https://github.com/anagolay/Grants-Program/blob/a6bd87adb3331db6efc8e7a96106c8efd53e4e31/applications/anagolay-project-idiyanale-phase-1.md#anagolay-cli-operation-part-1) we have implemented the Anagolay CLI is a single Javascript file built to have a single external dependency, which is the LTS Nodejs 16 and all other dependencies are bundled together. The CLI itself is installed via the IPFS and has `0.7.0` version as static and never chaning. The CLI will not be published on the npmjs registry nor any other registry that forces us to use Semver.
+As per grant Milestone 1 deliverable [Anagolay CLI: Operation Part 1](https://github.com/anagolay/Grants-Program/blob/a6bd87adb3331db6efc8e7a96106c8efd53e4e31/applications/anagolay-project-idiyanale-phase-1.md#anagolay-cli-operation-part-1) we have implemented the Anagolay CLI is a single Javascript file built to have a single external dependency, which is the LTS Nodejs 16 and all other dependencies are bundled together. The CLI itself is installed via the IPFS and has `0.7.0` version as static and never changing. The CLI will not be published on the npmjs registry nor any other registry that forces us to use Semver.
 The CLI is accessible system-wide by tying `anagolay`. It will produce people-friendly help which should be used to learn more about its functionality and features.
 For the purpose of this demo, the [env](./env) is used and annotated according to the usage, but in the future, we will not use such an approach unless we need overrides of the endpoints.
 The CLI has the main purpose to be the entrypoint for the developer to publish the Operation ( and in the future develop, init, audit, etc ...).
