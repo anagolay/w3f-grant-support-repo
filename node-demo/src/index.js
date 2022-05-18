@@ -11,31 +11,31 @@ global.Response = Response
 
 async function main() {
   // If no arguments are supplied, use default URL. Otherwise, use first argument
-  let file_url, is_default_url;
+  let fileUrl, isDefaultUrl;
   if (process.argv.length <= 2) {
-    file_url = "https://bafybeiavjzfgrxx2zq5r3vx352amhuzdv5pc5cu32xp7tlh4iqvcuxjcze.ipfs.dweb.link/tenerife-light-painting-01-1000x1000.jpg"
-    is_default_url = true
+    fileUrl = "https://ipfs.anagolay.network/ipfs/bafybeiavjzfgrxx2zq5r3vx352amhuzdv5pc5cu32xp7tlh4iqvcuxjcze/tenerife-light-painting-01-1000x1000.jpg"
+    isDefaultUrl = true
   } else {
-    file_url = process.argv[2]
-    is_default_url = false
+    fileUrl = process.argv[2]
+    isDefaultUrl = false
   }
-  console.log("File is " + file_url)
+  console.log("File is %s", fileUrl)
 
   // Instance the Workflow
-  let wf = new Workflow();
+  let workflow = new Workflow();
 
   // Run the next segment of the workflow
-  let inputs = [file_url]
-  let {done, output, total_time} = await wf.next(inputs);
+  let inputs = [fileUrl]
+  let {done, output, totalTime} = await workflow.next(inputs);
 
-  // Extract the output and some performance statistics
+  // Print the output and some performance statistics
   assert(done, "Workflow is not finished")
 
-  if (is_default_url) {
+  if (isDefaultUrl) {
     assert("bafkr4ih2xmsije6aa6yfwjdfmztnnkbb6ip56g3ojfcyfgjx6jsh6bogoe" === output, "Wrong CID calculated")  
   }
 
-  console.log('Execution time is:  %d millis', total_time.toFixed());
+  console.log('Execution time is:  %d millis', totalTime.toFixed());
   console.log('Workflow computed CID: %s', output)
 }
 

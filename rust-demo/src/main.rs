@@ -23,7 +23,7 @@ async fn main() {
     let result = workflow.next(inputs).await.unwrap();
     let result = result.as_ref();
 
-    // Extract the output and some performance statistics
+    // Print the output and some performance statistics
     assert!(result.is_done(), "Workflow is not finished");
     let output = result
         .get_output()

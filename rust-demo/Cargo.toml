@@ -12,7 +12,7 @@ description = "Demonstrating workflow execution in Rust"
 license = "Apache 2.0"
 
 [dependencies.wf_file_multihash_cid]
-git = "https://ipfs.anagolay.network/ipfs/bafybeigjcga7j6wf2svgspvsgzt7qqez37qm4borp4njyfnsqaadkmsxbu"
+git = "https://ipfs.anagolay.network/ipfs/bafybeifz7k7ljrmaylaetai577d4jra6ggwpvj6de44ed7p7i4fur3gtta"
 
 [dependencies.tokio]
 version = "1.16.1"
@@ -22,4 +22,4 @@ features = ["full"]
 version= "0.11.2"
 
 [patch.'https://gitlab.com/anagolay/operations/op_multihash']
-op_multihash = { git = "https://ipfs.anagolay.network/ipfs/bafybeid643i7bpsffvaw6wvsf2runosyqzrbmronvpixkybsusaoeqwjbm" }
+op_multihash = { git = "https://ipfs.anagolay.network/ipfs/bafybeifdnvwcj6lxnyfjytief3ftvcqqavwel3bfgf7ee3o4norawp5rne" }

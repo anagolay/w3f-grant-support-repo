@@ -764,7 +764,7 @@ checksum = "87f3e037eac156d1775da914196f0f37741a274155e34a0b7e427c35d2a2ecb9"
 [[package]]
 name = "op_cid"
 version = "0.1.0"
-source = "git+https://ipfs.anagolay.network/ipfs/bafybeielxu4goidpnd3qs22l4brdytpkxcb3tvig2esajf6nyf7elgrmoy#c822a7b452320ea2a4f9a0d82d31c77c39d46a86"
+source = "git+https://ipfs.anagolay.network/ipfs/bafybeib4em2zvtqjsrrd2hg2n2ms4g7efmrmod3nilwalroj3dzl47cnea#281da9c720ff80d9150d5821493c4c748d1ed135"
 dependencies = [
  "an_operation_support",
  "cid",
@@ -776,7 +776,7 @@ dependencies = [
 [[package]]
 name = "op_file"
 version = "0.1.0"
-source = "git+https://ipfs.anagolay.network/ipfs/bafybeihs3qmfu37rgpcdcaigr5f6yn5w4ymqjjjhfjxfj4mxgvh5a5gl4u#4218d832593c8e084af662c02eaa8399f958f910"
+source = "git+https://ipfs.anagolay.network/ipfs/bafybeic56c277zlm543hkptt55rmdtsg6nfjlnvezj62fokhxmggqobxq4#2a84d5dfc97d1c9bbf8c89cf5dd49473ae9400cf"
 dependencies = [
  "an_operation_support",
  "js-sys",
@@ -786,7 +786,7 @@ dependencies = [
 [[package]]
 name = "op_multihash"
 version = "0.1.0"
-source = "git+https://ipfs.anagolay.network/ipfs/bafybeid643i7bpsffvaw6wvsf2runosyqzrbmronvpixkybsusaoeqwjbm#b78480c6629e6df80792345e0aea91868ace29ac"
+source = "git+https://ipfs.anagolay.network/ipfs/bafybeifdnvwcj6lxnyfjytief3ftvcqqavwel3bfgf7ee3o4norawp5rne#7f8907f0c1c1171fc73398cb9b3b141a861061ab"
 dependencies = [
  "an_operation_support",
  "bincode",
@@ -1096,6 +1096,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "61ea8d54c77f8315140a05f4c7237403bf38b72704d031543aa1d16abbf517d1"
 dependencies = [
  "serde_derive",
+]
+
+[[package]]
+name = "serde-wasm-bindgen"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1cfc62771e7b829b517cb213419236475f434fb480eddd76112ae182d274434a"
+dependencies = [
+ "js-sys",
+ "serde",
+ "wasm-bindgen",
 ]
 
 [[package]]
@@ -1482,8 +1493,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "27370197c907c55e3f1a9fbe26f44e937fe6451368324e009cba39e139dc08ad"
 dependencies = [
  "cfg-if",
- "serde",
- "serde_json",
  "wasm-bindgen-macro",
 ]
 
@@ -1556,7 +1565,7 @@ dependencies = [
 [[package]]
 name = "wf_file_multihash_cid"
 version = "0.0.1"
-source = "git+https://ipfs.anagolay.network/ipfs/bafybeigjcga7j6wf2svgspvsgzt7qqez37qm4borp4njyfnsqaadkmsxbu#3dae8b545649a36d3c25ff72b8915b992907af0d"
+source = "git+https://ipfs.anagolay.network/ipfs/bafybeifz7k7ljrmaylaetai577d4jra6ggwpvj6de44ed7p7i4fur3gtta#fbcf431c43dac46d760a02e250498b3eb8b26b0c"
 dependencies = [
  "an_operation_support",
  "async-trait",
@@ -1567,6 +1576,7 @@ dependencies = [
  "op_file",
  "op_multihash",
  "serde",
+ "serde-wasm-bindgen",
  "wasm-bindgen",
  "wasm-bindgen-futures",
 ]
