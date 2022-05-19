@@ -3,9 +3,9 @@
   "version": "0.3.0",
   "contributors": [
     "Adriano Dalpane <adriano.dalpane@gmail.com>",
-    "Daniel Maricic <daniel@woss.io>",
+    "Daniel Maricic <daniel@woss.io>"
   ],
-
+  "type":"module", 
   "scripts": {
     "start": "node --experimental-modules --experimental-wasm-modules ./src/index.js"
   },
