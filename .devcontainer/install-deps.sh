@@ -29,10 +29,10 @@ echo "Installing pnpm"
 npm install -g pnpm
 
 echo "Installing nodejs demo deps"
-cd $PROJECT_ROOT/demos/node-demo 
+cd $PROJECT_ROOT/demos/nodejs
 pnpm install
 
 
 echo "Installing rust demo deps"
-cd $PROJECT_ROOT/demos/rust-demo 
+cd $PROJECT_ROOT/demos/rust
 cargo fetch
