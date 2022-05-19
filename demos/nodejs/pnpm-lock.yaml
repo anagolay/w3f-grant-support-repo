@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@anagolay/wf_file_multihash_cid': https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/?filename=wf_file_multihash_cid_wasm
+  '@anagolay/workflow_file_multihash_cid': https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/
   '@types/node': ^16.9.6
   node-fetch: ^3.2.0
 
 dependencies:
-  '@anagolay/wf_file_multihash_cid': '@bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/?filename=wf_file_multihash_cid_wasm'
+  '@anagolay/workflow_file_multihash_cid': '@bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/'
   node-fetch: 3.2.4
 
 devDependencies:
@@ -57,8 +57,8 @@ packages:
     engines: {node: '>= 8'}
     dev: false
 
-  '@bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/?filename=wf_file_multihash_cid_wasm':
-    resolution: {tarball: https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/?filename=wf_file_multihash_cid_wasm}
+  '@bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/':
+    resolution: {tarball: https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/}
     name: wf_file_multihash_cid
     version: 0.0.1
     dev: false

@@ -1,4 +1,4 @@
-import { Workflow } from '@anagolay/wf_file_multihash_cid'
+import { Workflow } from '@anagolay/workflow_file_multihash_cid'
 import { assert } from 'console'
 
 // Polyfill fetch

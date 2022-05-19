@@ -5,7 +5,9 @@
     "Adriano Dalpane <adriano.dalpane@gmail.com>",
     "Daniel Maricic <daniel@woss.io>"
   ],
-  "type":"module", 
+  "repository": "https://gitlab.com/anagolay/w3f-grant-support-repo",
+  "homepage": "https://gitlab.com/anagolay/w3f-grant-support-repo/demos/rust",
+  "type": "module",
   "scripts": {
     "start": "node --experimental-modules --experimental-wasm-modules ./src/index.js"
   },
@@ -22,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "@anagolay/wf_file_multihash_cid": "https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/?filename=wf_file_multihash_cid_wasm",
+    "@anagolay/workflow_file_multihash_cid": "https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/",
     "node-fetch": "^3.2.0"
   },
   "devDependencies": {

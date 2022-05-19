@@ -1,6 +1,6 @@
 # rust-demo
 
-Demonstrate execution of the wf_file_multihash_cid workflow. This workflow computes the CID of a 
+Demonstrate execution of the `workflow_file_multihash_cid` workflow. This workflow computes the CID of a 
 file given its URL. Retrieved by an HTTP call, the content of the file is hashed using Blake3 and 
 a CID v1 is computed afterwards.
 
