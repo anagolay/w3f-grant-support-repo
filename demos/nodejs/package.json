@@ -24,10 +24,10 @@
     ]
   },
   "dependencies": {
-    "@anagolay/wf_file_multihash_cid": "https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/",
-    "node-fetch": "^3.2.0"
+    "@anagolay/wf_file_multihash_cid": "http://127.0.0.1:8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq",
+    "node-fetch": "3.2.0"
   },
   "devDependencies": {
-    "@types/node": "^16.9.6"
+    "@types/node": "16.9.6"
   }
 }

@@ -1,21 +1,21 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@anagolay/wf_file_multihash_cid': https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/
-  '@types/node': ^16.9.6
-  node-fetch: ^3.2.0
+  '@anagolay/wf_file_multihash_cid': http://127.0.0.1:8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq
+  '@types/node': 16.9.6
+  node-fetch: 3.2.0
 
 dependencies:
-  '@anagolay/wf_file_multihash_cid': '@bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/'
-  node-fetch: 3.2.4
+  '@anagolay/wf_file_multihash_cid': '@127.0.0.1+8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq'
+  node-fetch: 3.2.0
 
 devDependencies:
-  '@types/node': 16.11.36
+  '@types/node': 16.9.6
 
 packages:
 
-  /@types/node/16.11.36:
-    resolution: {integrity: sha512-FR5QJe+TaoZ2GsMHkjuwoNabr+UrJNRr2HNOo+r/7vhcuntM6Ee/pRPOnRhhL2XE9OOvX9VLEq+BcXl3VjNoWA==}
+  /@types/node/16.9.6:
+    resolution: {integrity: sha512-YHUZhBOMTM3mjFkXVcK+WwAcYmyhe1wL4lfqNtzI0b3qAy7yuSetnM7QJazgE5PFmgVTNGiLOgRFfJMqW7XpSQ==}
     dev: true
 
   /data-uri-to-buffer/4.0.0:
@@ -43,8 +43,8 @@ packages:
     engines: {node: '>=10.5.0'}
     dev: false
 
-  /node-fetch/3.2.4:
-    resolution: {integrity: sha512-WvYJRN7mMyOLurFR2YpysQGuwYrJN+qrrpHjJDuKMcSPdfFccRUla/kng2mz6HWSBxJcqPbvatS6Gb4RhOzCJw==}
+  /node-fetch/3.2.0:
+    resolution: {integrity: sha512-8xeimMwMItMw8hRrOl3C9/xzU49HV/yE6ORew/l+dxWimO5A4Ra8ld2rerlJvc/O7et5Z1zrWsPX43v1QBjCxw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       data-uri-to-buffer: 4.0.0
@@ -57,8 +57,8 @@ packages:
     engines: {node: '>= 8'}
     dev: false
 
-  '@bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/':
-    resolution: {tarball: https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/}
+  '@127.0.0.1+8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq':
+    resolution: {tarball: http://127.0.0.1:8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq}
     name: wf_file_multihash_cid
     version: 0.0.1
     dev: false
