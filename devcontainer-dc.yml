@@ -11,5 +11,4 @@ services:
       - ./:/workspace:cached
     command: sleep infinity
     env_file: 
-      - ./env
-      - ./envFiles/anagolayCli
+      - ./.env

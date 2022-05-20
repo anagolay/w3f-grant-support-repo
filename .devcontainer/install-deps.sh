@@ -2,12 +2,21 @@
 
 PROJECT_ROOT=$(git rev-parse --show-toplevel)
 
+echo "Update and install system deps:"
+
+sudo apt update && sudo apt install -y direnv
+
 
 echo "Installing the Anagolay CLI"
 sudo sh -c 'curl https://bafybeievibptoefxtwzgfjj2ki6hi4zurvoyrxcoialmv3qgjodx655roy.ipfs.anagolay.network > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
 
 # smoke test
 echo "Anagolay version is $(anagolay --version)"
+
+if [ ! -f "$HOME/.bashrc.d/custom" ]; then
+	echo "Linking the custom bashrc file"
+	ln -sf $PROJECT_ROOT/.devcontainer/custom_bashrc $HOME/.bashrc.d/custom 
+fi
 
 if [ ! -d "/workspace/operations/op_file" ]; then
 	echo "Cloning the Op_File to the root for testing"

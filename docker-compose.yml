@@ -3,7 +3,7 @@ services:
   publish:
     image: docker.io/anagolay/microservices-publish:cf9ef194
     env_file:
-      - ./env
+      - ./.env
       - ./envFiles/publishService
     cap_add:
       - SYS_PTRACE
@@ -17,7 +17,7 @@ services:
   ws:
     image: docker.io/anagolay/microservices-ws-server:57552e85
     env_file:
-      - ./env
+      - ./.env
       - ./envFiles/wsService
     ports:
       - 2113:2113
@@ -33,7 +33,7 @@ services:
   db:
     image: docker.io/mongo:latest
     env_file: 
-      - ./env
+      - ./.env
       - ./envFiles/publishService
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
