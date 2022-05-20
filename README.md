@@ -38,8 +38,9 @@ Included in this environment:
 If you wish to get rid of the bootstrap nodes.
 ```sh
 # every time you recreate the containers run this if you want to remove the bootstrap nodes
-docker-compose exec ipfs ipfs bootstrap rm --all
-docker-compose restart ipfs
+docker-compose exec ipfs ipfs bootstrap rm all
+docker-compose stop ipfs
+docker-compose up -d ipfs
 ```
 
 Debugging and cleanup

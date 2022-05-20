@@ -32,9 +32,16 @@
     "rust": {
       "version": "latest",
       "profile": "default"
-    },
+    }
   },
   "remoteUser": "node",
   "postCreateCommand": "bash .devcontainer/install-deps.sh",
-  "postStartCommand": "docker-compose up -d"
+  "postStartCommand": "docker-compose up -d",
+  "forwardPorts": [
+    2112,
+    2113,
+    9944,
+    27017
+
+  ]
 }

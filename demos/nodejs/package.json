@@ -24,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "@anagolay/workflow_file_multihash_cid": "https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/",
+    "@anagolay/wf_file_multihash_cid": "https://bafybeiek2shtoahz6ecbzrq2sm7nithb4tst4laaptvr77ho3prryqwwnu.ipfs.anagolay.network/",
     "node-fetch": "^3.2.0"
   },
   "devDependencies": {

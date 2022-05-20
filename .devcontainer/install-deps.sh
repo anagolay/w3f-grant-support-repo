@@ -4,7 +4,7 @@ PROJECT_ROOT=$(git rev-parse --show-toplevel)
 
 
 echo "Installing the Anagolay CLI"
-sudo sh -c 'curl https://bafybeiawp434qdc6slnxn4dssvzorywjg2xvp3lojuw25y6fna3z2vq3py.ipfs.anagolay.network > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
+sudo sh -c 'curl https://bafybeievibptoefxtwzgfjj2ki6hi4zurvoyrxcoialmv3qgjodx655roy.ipfs.anagolay.network > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
 
 # smoke test
 echo "Anagolay version is $(anagolay --version)"
@@ -35,4 +35,4 @@ pnpm install
 
 echo "Installing rust demo deps"
 cd $PROJECT_ROOT/demos/rust
-cargo fetch
+cargo build

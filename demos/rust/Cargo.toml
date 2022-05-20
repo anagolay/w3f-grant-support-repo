@@ -11,7 +11,7 @@ edition = "2021"
 description = "Demonstrating workflow execution in Rust"
 license = "Apache 2.0"
 
-[dependencies.workflow_file_multihash_cid]
+[dependencies.wf_file_multihash_cid]
 git = "https://ipfs.anagolay.network/ipfs/bafybeifz7k7ljrmaylaetai577d4jra6ggwpvj6de44ed7p7i4fur3gtta"
 
 [dependencies.tokio]
