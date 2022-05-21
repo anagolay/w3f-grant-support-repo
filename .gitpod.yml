@@ -5,7 +5,7 @@ tasks:
       && git config --global gpg.program "remote-signer" \
       && git config --global commit.gpgsign true
   - name: Warmup and start
-    init: bash .devcontainer/install-deps.sh
+    before: bash .devcontainer/install-deps.sh
     command: docker-compose up -d
 
 vscode:
