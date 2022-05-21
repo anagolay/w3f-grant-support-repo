@@ -37,11 +37,11 @@ fi
 echo "Installing pnpm"
 npm install -g pnpm
 
-echo "Installing nodejs demo deps"
-cd $PROJECT_ROOT/demos/nodejs
-pnpm install
+# echo "Installing nodejs demo deps"
+# cd $PROJECT_ROOT/demos/nodejs
+# pnpm install
 
 
-echo "Installing rust demo deps"
-cd $PROJECT_ROOT/demos/rust
-cargo build
+# echo "Installing rust demo deps"
+# cd $PROJECT_ROOT/demos/rust
+# cargo build
