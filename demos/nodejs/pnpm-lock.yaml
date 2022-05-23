@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@anagolay/wf_file_multihash_cid': http://127.0.0.1:8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq
+  '@anagolay/wf_file_multihash_cid': http://127.0.0.1:8080/ipfs/bafybeicjudzi2bxun6d6upiihg75fh4d7hy4el3agmxvevrk7yzqbmbzku
   '@types/node': 16.9.6
   node-fetch: 3.2.0
 
 dependencies:
-  '@anagolay/wf_file_multihash_cid': '@127.0.0.1+8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq'
+  '@anagolay/wf_file_multihash_cid': '@127.0.0.1+8080/ipfs/bafybeicjudzi2bxun6d6upiihg75fh4d7hy4el3agmxvevrk7yzqbmbzku'
   node-fetch: 3.2.0
 
 devDependencies:
@@ -57,8 +57,8 @@ packages:
     engines: {node: '>= 8'}
     dev: false
 
-  '@127.0.0.1+8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq':
-    resolution: {tarball: http://127.0.0.1:8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq}
+  '@127.0.0.1+8080/ipfs/bafybeicjudzi2bxun6d6upiihg75fh4d7hy4el3agmxvevrk7yzqbmbzku':
+    resolution: {tarball: http://127.0.0.1:8080/ipfs/bafybeicjudzi2bxun6d6upiihg75fh4d7hy4el3agmxvevrk7yzqbmbzku}
     name: wf_file_multihash_cid
     version: 0.0.1
     dev: false

@@ -1,7 +1,7 @@
 [package]
 name = "rust-demo"
-repository = "https://gitlab.com/anagolay/w3f-grant-support-repo"
-homepage = "https://gitlab.com/anagolay/w3f-grant-support-repo/demos/rust"
+repository = "https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-2"
+homepage = "https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-2/demos/rust"
 version = "0.3.0"
 authors = [
   "Adriano Dalpane <adriano.dalpane@gmail.com>",
@@ -12,7 +12,7 @@ description = "Demonstrating workflow execution in Rust"
 license = "Apache 2.0"
 
 [dependencies.wf_file_multihash_cid]
-git = "http://127.0.0.1:8080/ipfs/bafybeihe3gt75sixt5mykiiatbbifyqjzzf6uqyqpymgrvdqwawg4r2d6i"
+git = "http://127.0.0.1:8080/ipfs/bafybeigl2oqqddtfma2nmyq5vkas5hwynom3nfknm6zffbtwipkxzlhfee"
 
 [dependencies.tokio]
 version = "1.16.1"

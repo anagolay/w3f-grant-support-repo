@@ -1,7 +1,7 @@
 {
   "remote.autoForwardPorts": false,
   // "terminal.integrated.fontFamily": "Consolas",
-  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.letterSpacing": 1,
   "editor.wordWrapColumn": 110
 }

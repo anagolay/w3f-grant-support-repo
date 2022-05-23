@@ -4,10 +4,17 @@ tasks:
       sudo sh -c 'curl https://ipfs.anagolay.network/ipfs/QmVwR17T5oT4SsH1gb8T9L9gHe5CsJz2iwhbhWCwPPHgHR > /usr/local/bin/remote-signer && chmod +x /usr/local/bin/remote-signer' \
       && git config --global gpg.program "remote-signer" \
       && git config --global commit.gpgsign true
-  - name: Warmup and start
+      
+  - name: Install deps
     before: bash .devcontainer/install-deps.sh
-    command: docker-compose up -d
 
+  - name: Start containers 
+    command: docker-compose up -d
+ports:
+  - port: 2113
+    visibility: public
+  - port: 9944
+    visibility: public
 vscode:
   extensions:
     - svelte.svelte-vscode
@@ -16,3 +23,4 @@ vscode:
     - EditorConfig.EditorConfig
     - yzhang.markdown-all-in-one
     - bierner.markdown-mermaid
+    - tamasfe.even-better-toml

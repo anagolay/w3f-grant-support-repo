@@ -5,8 +5,8 @@
     "Adriano Dalpane <adriano.dalpane@gmail.com>",
     "Daniel Maricic <daniel@woss.io>"
   ],
-  "repository": "https://gitlab.com/anagolay/w3f-grant-support-repo",
-  "homepage": "https://gitlab.com/anagolay/w3f-grant-support-repo/demos/rust",
+  "repository": "https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-2",
+  "homepage": "https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-2/demos/nodejs",
   "type": "module",
   "scripts": {
     "start": "node --experimental-modules --experimental-wasm-modules ./src/index.js"
@@ -24,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "@anagolay/wf_file_multihash_cid": "http://127.0.0.1:8080/ipfs/bafybeicexj7yv64epmqikcwokec5lg7eneiasan4nde76gu2qwfqu4wcuq",
+    "@anagolay/wf_file_multihash_cid": "http://127.0.0.1:8080/ipfs/bafybeicjudzi2bxun6d6upiihg75fh4d7hy4el3agmxvevrk7yzqbmbzku",
     "node-fetch": "3.2.0"
   },
   "devDependencies": {
