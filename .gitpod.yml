@@ -15,6 +15,20 @@ ports:
     visibility: public
   - port: 9944
     visibility: public
+  - port: 8080
+    visibility: private
+  - port: 9933
+    visibility: private
+  - port: 27017
+    visibility: private
+  - port: 4001
+    visibility: private
+  - port: 5001
+    visibility: private
+  - port: 2112
+    visibility: private
+  - port: 30333
+    visibility: private
 vscode:
   extensions:
     - svelte.svelte-vscode

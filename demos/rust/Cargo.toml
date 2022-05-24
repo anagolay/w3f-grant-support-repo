@@ -11,8 +11,10 @@ edition = "2021"
 description = "Demonstrating workflow execution in Rust"
 license = "Apache 2.0"
 
-[dependencies.wf_file_multihash_cid]
-git = "http://127.0.0.1:8080/ipfs/bafybeigl2oqqddtfma2nmyq5vkas5hwynom3nfknm6zffbtwipkxzlhfee"
+# change the dependency name to your workflow name in case you changed it
+# [dependencies.wf_file_multihash_cid]
+[dependencies.YOUR-WORKFLOW-NAME]
+git = "http://127.0.0.1:8080/ipfs/WORFKLOW_GIT_CID"
 
 [dependencies.tokio]
 version = "1.16.1"
