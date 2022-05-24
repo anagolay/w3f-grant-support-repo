@@ -38,9 +38,9 @@ Included in this environment:
 If you wish to get rid of the bootstrap nodes.
 ```sh
 # every time you recreate the containers run this if you want to remove the bootstrap nodes
-docker-compose exec ipfs ipfs bootstrap rm all
-docker-compose stop ipfs
-docker-compose up -d ipfs
+docker-compose exec ipfs ipfs bootstrap rm all \
+&& docker-compose stop ipfs \
+&& docker-compose up -d ipfs
 ```
 
 Debugging and cleanup
@@ -112,8 +112,8 @@ const GATEWAY_URL = "ipfs.anagolay.network"; // or ipfs.io
 // this is stored on the Anagolay chain as a part of the Version
 const DOCS_CID = "bafybeiahkoghy4yozvqrp5q66mitk6kpxdec243mdzcel67jdt3gcyffi4";
 
-const docUrl = `https://${GATEWAY_URL}/ipfs/${DOCS_CID}/${OPERATION_NAME}/index.html`;
-// https://ipfs.anagolay.network/ipfs/bafybeiahkoghy4yozvqrp5q66mitk6kpxdec243mdzcel67jdt3gcyffi4/op_file/index.html
+const docUrl = `https://${DOCS_CID}.${GATEWAY_URL}/${OPERATION_NAME}/index.html`;
+// https://bafybeiahkoghy4yozvqrp5q66mitk6kpxdec243mdzcel67jdt3gcyffi4.ipfs.anagolay.network/op_file/index.html
 ```
 
 > ℹ️ If you didn't change the `env` file the api key is not needed even though the API documentation says that it is used.
