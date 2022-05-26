@@ -1,10 +1,28 @@
+- [Anagolay project Idiyanale phase 1 (Nr. 1) - Milestone 2](#anagolay-project-idiyanale-phase-1-nr-1---milestone-2)
+  - [Updated Publish service](#updated-publish-service)
+  - [publishWorkflow job](#publishworkflow-job)
+  - [Anagolay Operation Standard](#anagolay-operation-standard)
+- [Deliverables](#deliverables)
+  - [Workflows Pallet](#workflows-pallet)
+  - [Anagolay CLI: Workflow manifest generation](#anagolay-cli-workflow-manifest-generation)
+  - [Operation - op\_cid](#operation---op_cid)
+  - [Operation - op\_multihash](#operation---op_multihash)
+  - [Workflow: execution](#workflow-execution)
+  - [Nodejs demo app - Part 1](#nodejs-demo-app---part-1)
+  - [Rust demo crate - Part 2](#rust-demo-crate---part-2)
+- [Building the Operations and Workflow](#building-the-operations-and-workflow)
+  - [re-build op\_file](#re-build-op_file)
+  - [build op\_multihash](#build-op_multihash)
+  - [build op\_cid](#build-op_cid)
+
+
 # Anagolay project Idiyanale phase 1 (Nr. 1) - Milestone 2
 
 Hi and welcome to the support repo for the W3F grant [PR 719](https://github.com/w3f/Grants-Program/pull/719). This is a continuation of the previous [Milestone 1](https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-1). Certain documentation and descriptions will **not** be duplicated but referenced. Removals are **not** indicated, only the **additions**.
 
 ---
 
-You can choose to open this repo in Gitpod or locally with [VsCode Devcontainer](https://code.visualstudio.com/docs/remote/containers). It will set up the environment, all the dependencies and start all the docker containers which you will need for the successful demo.
+You can choose to open this repo in Gitpod or locally with [VsCode Devcontainer](https://code.visualstudio.com/docs/remote/containers). It will set up the environment, and all the dependencies and start all the docker containers which you will need for the successful demo.
 
 Important new files and directories ( additions to previous Milestone ):
 
