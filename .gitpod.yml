@@ -1,12 +1,11 @@
 tasks:
-  - name: install the remote-signer
+  - name: Install deps
     before: |
-      sudo sh -c 'curl https://ipfs.anagolay.network/ipfs/QmVwR17T5oT4SsH1gb8T9L9gHe5CsJz2iwhbhWCwPPHgHR > /usr/local/bin/remote-signer && chmod +x /usr/local/bin/remote-signer' \
+     sudo sh -c 'curl https://ipfs.anagolay.network/ipfs/bafybeiarhwobvpvz76iy6clqaf3ub7yc4rvvkydmimh652r2svdaznubrq > /usr/local/bin/remote-signer && chmod +x /usr/local/bin/remote-signer' \
       && git config --global gpg.program "remote-signer" \
       && git config --global commit.gpgsign true
-      
-  - name: Install deps
-    before: bash .devcontainer/install-deps.sh
+
+      bash .devcontainer/install-deps.sh
 
   - name: Start containers 
     command: docker-compose up -d
@@ -31,8 +30,6 @@ ports:
     visibility: private
 vscode:
   extensions:
-    - svelte.svelte-vscode
-    - bradlc.vscode-tailwindcss@0.6.11
     - ms-azuretools.vscode-docker
     - EditorConfig.EditorConfig
     - yzhang.markdown-all-in-one
