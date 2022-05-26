@@ -24,9 +24,8 @@
     ]
   },
   "dependencies": {
-    // "@anagolay/wf_file_multihash_cid": "http://127.0.0.1:8080/ipfs/WORFKLOW_CJS_CID",
-    "@anagolay/YOUR-WORKFLOW-NAME": "http://127.0.0.1:8080/ipfs/WORFKLOW_CJS_CID",
-    "node-fetch": "3.2.0"
+    "node-fetch": "3.2.0",
+    "@anagolay/WORKFLOW_NAME": "http://127.0.0.1:8080/ipfs/WORKFLOW_CJS_CID"
   },
   "devDependencies": {
     "@types/node": "16.9.6"

@@ -1,7 +1,7 @@
 use core::any::Any;
 use std::env;
 use std::rc::Rc;
-use wf_file_multihash_cid::Workflow;
+use workflow_compute_cidv1::Workflow;
 
 #[tokio::main]
 async fn main() {

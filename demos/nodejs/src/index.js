@@ -1,4 +1,5 @@
-import { Workflow } from '@anagolay/wf_file_multihash_cid'
+// import the workflow like any library. it's fully typed too!
+import { Workflow } from '@anagolay/workflow_compute_cidv1'
 import { assert } from 'console'
 
 // Polyfill fetch
