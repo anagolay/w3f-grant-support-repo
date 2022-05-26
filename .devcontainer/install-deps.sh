@@ -8,13 +8,20 @@ sudo apt update && sudo apt install -y direnv
 
 
 echo "Installing the Anagolay CLI"
-sudo sh -c 'curl https://bafybeif2uvely2ql36lry4j5cgu3fqxlq32ohwdkbgesimyyjsrmn2ze54.ipfs.anagolay.network > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
+sudo sh -c 'curl https://bafybeibybur764gvodwjpzij4umjzr6knkpfcnil5sdmwfoysyfgi5gvre.ipfs.anagolay.network > /usr/local/bin/anagolay && chmod +x /usr/local/bin/anagolay'
 
 # smoke test
 echo "Anagolay version is $(anagolay --version)"
 
 if [ ! -f "$HOME/.bashrc.d/custom" ]; then
+if [ ! -d "$HOME/.bashrc.d" ]; then
   mkdir $HOME/.bashrc.d
+  else 
+  # this is not used in the vscode but we don't want to echo eval all the time. it's quick and dirty trick
+  mkdir $HOME/.bashrc.d
+  echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
+  fi
+
 	echo "Linking the custom bashrc file"
 	ln -sf $PROJECT_ROOT/.devcontainer/custom_bashrc $HOME/.bashrc.d/custom 
 fi
