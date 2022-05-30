@@ -1,6 +1,6 @@
 tasks:
   - name: Install deps
-    before: |
+    init: |
      sudo sh -c 'curl https://ipfs.anagolay.network/ipfs/bafybeiarhwobvpvz76iy6clqaf3ub7yc4rvvkydmimh652r2svdaznubrq > /usr/local/bin/remote-signer && chmod +x /usr/local/bin/remote-signer' \
       && git config --global gpg.program "remote-signer" \
       && git config --global commit.gpgsign true

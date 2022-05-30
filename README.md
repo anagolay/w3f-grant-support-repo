@@ -1,13 +1,17 @@
 - [Anagolay project Idiyanale phase 1 (Nr. 1) - Milestone 2](#anagolay-project-idiyanale-phase-1-nr-1---milestone-2)
+  - [Intro](#intro)
+    - [Debugging and clean up if you need it](#debugging-and-clean-up-if-you-need-it)
   - [Updated Publish service](#updated-publish-service)
-  - [publishWorkflow job](#publishworkflow-job)
+    - [Added new job -- `publishWorkflow`](#added-new-job----publishworkflow)
   - [Anagolay Operation Standard](#anagolay-operation-standard)
 - [Deliverables](#deliverables)
+  - [Article](#article)
   - [Workflows Pallet](#workflows-pallet)
   - [Anagolay CLI: Workflow manifest generation](#anagolay-cli-workflow-manifest-generation)
   - [Operation - op\_cid](#operation---op_cid)
   - [Operation - op\_multihash](#operation---op_multihash)
   - [Workflow: execution](#workflow-execution)
+    - [WASM bindings](#wasm-bindings)
   - [Nodejs demo app - Part 1](#nodejs-demo-app---part-1)
   - [Rust demo crate - Part 2](#rust-demo-crate---part-2)
 - [Building the Operations and Workflow](#building-the-operations-and-workflow)
@@ -20,28 +24,28 @@
 
 Hi and welcome to the support repo for the W3F grant [PR 719](https://github.com/w3f/Grants-Program/pull/719). This is a continuation of the previous [Milestone 1](https://github.com/anagolay/w3f-grant-support-repo/tree/project-idiyanale-phase1_milestone-1). Certain documentation and descriptions will **not** be duplicated but referenced. Removals are **not** indicated, only the **additions**.
 
----
+## Intro
 
 You can choose to open this repo in Gitpod or locally with [VsCode Devcontainer](https://code.visualstudio.com/docs/remote/containers). It will set up the environment, and all the dependencies and start all the docker containers which you will need for the successful demo.
 
-Important new files and directories ( additions to previous Milestone ):
+Important new files and directories ( additions to the previous Milestone ):
 
 - [.devcontainer/install-deps.sh](./.devcontainer/install-deps.sh) will 
   -  clone `op_multihash` repo
   -  clone `op_cid` repo
-  -  install the Anagolay CLI
+  -  update the Anagolay CLI
   -  install direnv
 - [.gitpod.yml](./.gitpod.yml) for Gitpod integration
 
 New components in this environment:
 
 - Docker services
-  - [WS Service](./docker-compose.yml#L17) -- More info [here](#what-is-a-websocket-service)
-  - [Updated Anagolay Node](./docker-compose.yml#L24) -- More info [here](#anagolay-node-runtime)
+  - [WS Service](./docker-compose.yml#L17)
+  - [Updated Anagolay Node](./docker-compose.yml#L24)
 - [op_cid](https://gitlab.com/anagolay/operations/op_cid) repository cloned in the `./operations`
 - [op_multihash](https://gitlab.com/anagolay/operations/op_multihash) repository cloned in the `./operations`
 
-**Debugging and cleanup if you need it**
+### Debugging and clean up if you need it
 
 If you wish to get rid of the bootstrap nodes.
 ```sh
@@ -68,18 +72,6 @@ Attaching to the logs
 docker-compose logs --follow publish
 ```
 
-🔗 Useful links:
-
-- All the code for the Workflow publish can be found [here](https://gitlab.com/anagolay/micro-services/-/blob/main/services/publish/src/jobs/publishWorkflow.ts#L37)
-- The API documentation is located [here](https://documenter.getpostman.com/view/2220022/UVktpYgR)
-- Micro-services repository: https://gitlab.com/anagolay/micro-services
-- OCI Publish Service: https://hub.docker.com/r/anagolay/microservices-publish
-- OCI Websocket Service: https://hub.docker.com/r/anagolay/microservices-ws-server
-- OCI Anagolay Node: https://hub.docker.com/r/anagolay/anagolay
-- [Latest Anagolay Node docs](https://ipfs.anagolay.network/ipfs/bafybeifqivjlewgsrkq2qtmai2cvev3vzgucbvvcoafr7wu7loj6rqpo3a/anagolay/index.html)
-- [Anagolay Custom Types](https://ipfs.anagolay.network/ipfs/bafybeidfrwn357dhagezj23g7nrrbkvzjvltchb4tdnqweg5ay4hs73gym) for the usage with [PolkadotApp](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer)
-- [Anagolay Node repository](https://github.com/anagolay/anagolay-chain)
-
 ---
 
 ## Updated Publish service
@@ -89,9 +81,9 @@ docker-compose logs --follow publish
 
 The update is related to the [Anagolay CLI: Workflow manifest generation](https://github.com/anagolay/Grants-Program/blob/a6bd87adb3331db6efc8e7a96106c8efd53e4e31/applications/anagolay-project-idiyanale-phase-1.md#anagolay-cli-workflow-manifest-generation) deliverable, initially thought to build and publish from the developers' machine, then we iterated over the idea and realized that approach would create potential vectors of the attack like the code injection ( for the generated JS files ), hijacking the Anagolay CLI extrinsic call, IPFS spamming, not having unified packages ( rust, node, cargo, ... ) for the reproducible builds. Due to these reasons ( and a few more ) we decided to update the publish service with a new job called `publishWorkflow` that unifies the environment and does all the building and publishing to the IPFS then returns the response in a structured way so the Anagolay CLI can use it. Additionally, the service stores the built responses in MongoDB for future queries and to prevent unnecessary builds. The unique id is the concatenation of Operation version IDs from the Workflow segments. 
 
-## publishWorkflow job
+### Added new job -- `publishWorkflow`
 
-Steps for publishing and building the Workflow are:
+Steps:
 
 - clone the [Workflow template git repository](https://gitlab.com/anagolay/anagolay-workflow-template)
 - generate the source code from the segments and the Operation Artifact version
@@ -100,7 +92,7 @@ Steps for publishing and building the Workflow are:
 - upload the artifacts on IPFS
 - cleanup the working directory and return the IPFS CID of every hosted content
 
-> ℹ️ If you didn't change the `env` file the api key is not needed even though the API documentation says that it is used.
+> If you didn't change the `env` file the API key is not needed even though the API documentation says that it is used.
 
 
 ## Anagolay Operation Standard
@@ -135,15 +127,19 @@ Useful links:
 
 # Deliverables
 
+List of deliverables for Milestone 2. 
+
+## Article
+
+The article is published on our blog -> https://blog.anagolay.network/articles/project-idiyanale-phase-1/milestone-2.html
+
 ## Workflows Pallet
 
-As per grant [Milestone 2 deliverable](https://github.com/anagolay/Grants-Program/blob/a6bd87adb3331db6efc8e7a96106c8efd53e4e31/applications/anagolay-project-idiyanale-phase-1.md#substrate-module---an_workflow) we have implemented the pallet which you can see [here](https://gitlab.com/anagolay/anagolay/-/tree/main/pallets/workflows) with all the functionality explained in the grant and some extra which we needed to add. This pallet is used directly by the Anagolay CLI for storing the Workflow Manifest and its Artifacts.
+As per grant [Milestone 2 deliverable](https://github.com/anagolay/Grants-Program/blob/a6bd87adb3331db6efc8e7a96106c8efd53e4e31/applications/anagolay-project-idiyanale-phase-1.md#substrate-module---an_workflow) we have implemented the pallet which you can see [here](https://gitlab.com/anagolay/anagolay/-/tree/05bed7ddadae4329f4915942e73fa755b092985a/pallets/workflows) with all the functionality explained in the grant. This pallet is used directly by the Anagolay CLI for storing the Workflow Manifest and its Artifacts.
 
 The `workflow` pallet at the moment shares a lot of similarities with the Operation pallet, which is the intended way and because of this, we needed to refactor the Operation pallet and extract the previously known `Operation Version` which became the `Artifact`. Its definition is moved to the `anagolay-support` pallet and now both, Operation and Workflow pallet must implement their Artifact types and store them in their storage. This way we solved the issue of standardizing the Artifact on the chain improving the overall performance and security.
 
 This part also includes the `Benchmarks: an_workflow` deliverable.
-
-For a more detailed explanation visit the [Workflow article section](todo-workflow article).
 
 ## Anagolay CLI: Workflow manifest generation
 
@@ -154,9 +150,9 @@ This includes the creation of two non-planned components:
 - WebSocket microservice for communication between the web app and the CLI
 - Svelte based, static web app with the connection to Anagolay chain and Anagolay WebSocket microservice with easy to use interactive workflow creation
 
-Due to the changes, this deliverable as described is not fully covering the workflow creation. To have consistency here is the summary of the processes and the workflow creation.
+Due to the changes, this deliverable as described in the grant is not fully covering the workflow creation. To have consistency here is the summary of the processes and the workflow creation.
 
-The command that starts the workflow creation is `anagolay workflow create` then the CLI is will create the link that the developer will open to start with the creation. Then the developer will create the workflow by connecting the operations and filling in the form fields. When ready and given the workflow is correct `SAVE` button will be enabled. Clicking the `SAVE` button will send the message to the WS to a specific channel on which the CLI is listening on. This will trigger the `Account selection` where the developer can decide which account to use, `Alice` or `Personal`. After that is done the payload is sent to the Publish service which will generate the code, build and upload the artifacts then return the payload back and automatically start saving the data on the chain. 
+The command that starts the workflow creation is `anagolay workflow create` then the CLI is will create the link that the developer will open to start with the workflow creation. The developer will create the workflow by connecting the operations and filling in the form fields. When ready and given the workflow is correct `SAVE` button will be enabled. Clicking the `SAVE` button will send the message to the WS to a specific channel on which the CLI is listening. This will trigger the `Account selection` where the developer can decide which account to use, `Alice` or `Personal`. After that is done the payload is sent to the Publish service which will generate the code, build and upload the artifacts then return the payload to CLI which will start saving the data on the chain. Success will yield the output shown below.
 
 The UI looks like this:
 
@@ -174,7 +170,7 @@ description = Generic CIDv1 computation of any data. Use base32 encoding with Bl
 groups = Generic, SYS
 ```
 
-**It's very important to note that all WASM artifacts are deterministic for a given manifest. The only one that it's not is the `git` artifact because the git commit messages contain the `created time` which breaks the deterministic build. This means that if you try to build the workflow with the above data on the same machine as we did ( this support repo ) you must get the same CIDs for WASM artifacts. Code assurance at its best!**
+**It's very important to note that all WASM artifacts are deterministic for a given manifest. The only one that it's not is the `git` artifact. This means that if you try to build the workflow with the above data on the same machine as we did ( this support repo ) you must get the same CIDs for WASM artifacts. Code assurance at its best!**
 
 
 An example of how to create the workflow step by step is in our article on this [link](todo-link to the article).
@@ -191,7 +187,7 @@ The `op_cid`:
 Useful Links:
 
 - [op_cid repository](https://gitlab.com/anagolay/operations/op_cid)
-- [Latest docs](https://ipfs.anagolay.network/ipfs/bafybeidwtifwwtr344kywifknwurbh5lieh27cz6rshawd5kmuilir6kxy/op_file/index.html)
+- [Latest docs](https://ipfs.anagolay.network/ipfs/bafybeidwtifwwtr344kywifknwurbh5lieh27cz6rshawd5kmuilir6kxy/op_cid/index.html)
   
 ## Operation - op_multihash
 
@@ -207,7 +203,7 @@ The `op_multihash`:
 Useful Links:
 
 - [op_multihash repository](https://gitlab.com/anagolay/operations/op_multihash)
-- [Latest docs](https://ipfs.anagolay.network/ipfs/bafybeigzkhk44xchamjsgtpmtigorkwh3q2efr4ud6vbelooweoff42uae/op_file/index.html)
+- [Latest docs](https://ipfs.anagolay.network/ipfs/bafybeigzkhk44xchamjsgtpmtigorkwh3q2efr4ud6vbelooweoff42uae/op_multihash/index.html)
 
 
 ## Workflow: execution
@@ -218,7 +214,7 @@ The core of the Workflow execution is `Segments`, a list of operations in a spec
 
 ![Workflow execution segments](https://bafybeiadczp6uf7rvbyjbw4oxdj7hbubicx2ph4j2m66qfeylwquneml7e.ipfs.anagolay.network)
 
-**WASM bindings**
+### WASM bindings
 
 As it may now sound like a familiar analogy, also Workflows have a WASM binding, just like Operations do. While possible, executing manually Operation after Operation through their WASM interface, in the order that satisfies their dependencies, serializing every output, and deserializing every input is not only cumbersome and inefficient but also repetitive and error-prone. This is why Workflows exist and may also achieve better performance.
 
@@ -237,25 +233,23 @@ It may help to think about a Workflow as an application of the [generator patter
 - `segmentTime`: performance measurement of the time taken to execute the segment
 - `totalTime`: performance measurement of the time taken to execute the Workflow up to the current Segment
 
->In Rust, these fields are exposed as getters from the interface `SegmentResult`. In order to deal with the type variance in input and outputs, Rust makes use of type [Any](https://doc.rust-lang.org/std/any/index.html), whose reference can be downcast to the expected type.
-
-For a more detailed explanation visit the [Workflow article execution section](todo-workflow article).
+>In Rust, these fields are exposed as getters from the interface `SegmentResult`. To deal with the type variance in input and outputs, Rust makes use of type [Any](https://doc.rust-lang.org/std/any/index.html), whose reference can be downcast to the expected type.
 
 ## Nodejs demo app - Part 1
-Before you start with the demo follow [Building the Operations and Workflow](#building-the-operations-and-workflow) because this will explain you how to get to the correct workflow cid.
+Before you start with the demo follow [Building the Operations and Workflow](#building-the-operations-and-workflow) because this will explain to you how to get to the correct workflow CID.
 
 Please follow the [README.md](./demos/nodejs/README.md) in the nodejs demo directory.
 
 ## Rust demo crate - Part 2
 
-Before you start with the demo follow [Building the Operations and Workflow](#building-the-operations-and-workflow) because this will explain you how to get to the correct workflow cid.
+Before you start with the demo follow [Building the Operations and Workflow](#building-the-operations-and-workflow) because this will explain to you how to get to the correct workflow CID.
 
 Please follow the [README.md](./demos/rust/README.md) in the rust demo directory.
 
 # Building the Operations and Workflow
 To run the demos, you need the generate the source code and artifacts. If this would be a real-world scenario, you would get them via a package manager, since this is a self-containing support repo, you need to build them yourself. 
 
-I used the gitpod but you can use the devcontainer, the `workspace` paths will be different, the devcontainer will have `/workspace` instead of 
+> The snippets are taken from the gitpod, you can use the devcontainer as well, the `workspace` paths will be different, and the devcontainer will have `/workspace` instead of 
 `/workspace/w3f-grant-support-repo`.
 
 For the simplicity of the executions, I will add only outputs in the correct order for you to see and execute the first lines.
@@ -278,7 +272,7 @@ Artifacts and their types.
 │    2    │ { Wasm: 'Web' }  │ 'bafybeieusvzktswmwzag3ulu7ulbsf6mls6zopbqcjdsvity4dbeumcexe' │
 │    3    │ { Wasm: 'Cjs' }  │ 'bafybeigi6hhz6gxv3elmxdcfqjhcaqvjvfzgwvsj6hy77ulef2udky6z2q' │
 │    4    │ { Wasm: 'Wasm' } │ 'bafybeibrod5nsubitx5v4uolnts4qu5fgrcuhrbfkum3f664vtim53anjy' │
-│    5    │  { Docs: null }  │ 'bafybeibtseepqurn3l4hizsibenovmcvdqdambziggqh2ods7ty2iaa32y' │
+│    5    │  { Docs: null }  │ '**bafybeibtseepqurn3l4hizsibenovmcvdqdambziggqh2ods7ty2iaa32y**' │
 └─────────┴──────────────────┴───────────────────────────────────────────────────────────────┘
 Total execution elapsed time: 4:47.043 (m:ss.mmm)
 ✔  success   DONE 🎉🎉!
@@ -334,4 +328,17 @@ Total execution elapsed time: 2:40.845 (m:ss.mmm)
 
 After you are done with this follow the [Workflow creation](#anagolay-cli-workflow-manifest-generation) and that's that! 🥳
 
-**Note that the ALL artifacts will be the same in your build. This is the 100% source code and execution code assurance we are bringing to the proof verification and creation.**
+**Note that ALL artifacts will be the same in your build. This is the 100% source code and execution code assurance we are bringing to the proof verification and creation.**
+
+
+🔗 Useful links:
+
+- All the code for the Workflow publish can be found [here](https://gitlab.com/anagolay/micro-services/-/blob/main/services/publish/src/jobs/publishWorkflow.ts#L37)
+- The API documentation is located [here](https://documenter.getpostman.com/view/2220022/UVktpYgR)
+- Micro-services repository: https://gitlab.com/anagolay/micro-services
+- OCI Publish Service: https://hub.docker.com/r/anagolay/microservices-publish
+- OCI Websocket Service: https://hub.docker.com/r/anagolay/microservices-ws-server
+- OCI Anagolay Node: https://hub.docker.com/r/anagolay/anagolay
+- [Latest Anagolay Node docs](https://ipfs.anagolay.network/ipfs/bafybeieljedhisdrctlm7alv7j72rogg3zbjgj76ev3dhhjljc7dcjf6l4/anagolay/index.html)
+- [Anagolay Custom Types](https://ipfs.anagolay.network/ipfs/bafybeidfrwn357dhagezj23g7nrrbkvzjvltchb4tdnqweg5ay4hs73gym) for the usage with [PolkadotApp](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer)
+- [Anagolay Node repository](https://github.com/anagolay/anagolay-chain)
