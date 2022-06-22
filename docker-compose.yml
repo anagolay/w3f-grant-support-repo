@@ -1,7 +1,7 @@
 version: "3"
 services:
   publish:
-    image: docker.io/anagolay/microservices-publish:a61ae89e
+    image: docker.io/anagolay/microservices-publish:bb8ae164
     env_file:
       - ./.env
       - ./envFiles/publishService
