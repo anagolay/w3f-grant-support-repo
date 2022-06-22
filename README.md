@@ -328,7 +328,8 @@ Total execution elapsed time: 2:40.845 (m:ss.mmm)
 
 After you are done with this follow the [Workflow creation](#anagolay-cli-workflow-manifest-generation) and that's that! 🥳
 
-** Notes ** 
+**Notes**
+
 Due to the unresolved multiple issues in `wasm-pack` related to the installation of `wasm-bindgen` the support repo publish service might fail on the first run, any subsequent runs will pass. This change also breaks the code assurance because it introduces new versions ( we literally cannot control this ATM ) inside the WASM binaries.
 
 
