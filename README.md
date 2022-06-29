@@ -173,7 +173,7 @@ groups = Generic, SYS
 **It's very important to note that all WASM artifacts are deterministic for a given manifest. The only one that it's not is the `git` artifact. This means that if you try to build the workflow with the above data on the same machine as we did ( this support repo ) you must get the same CIDs for WASM artifacts. Code assurance at its best!**
 
 
-An example of how to create the workflow step by step is in our article on this [link](todo-link to the article).
+An example of how to create the workflow step by step is in our article on this [link](https://blog.anagolay.network/articles/project-idiyanale-phase-1/milestone-2.html).
 
 ## Operation - op_cid
 
